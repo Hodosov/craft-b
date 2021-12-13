@@ -1,4 +1,5 @@
 import 'package:crafts/config/app_router.dart';
+import 'package:crafts/config/theme.dart';
 import 'package:crafts/screens/screens.dart';
 import 'package:flutter/material.dart';
 
@@ -11,8 +12,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "Craft-B",
-      theme: ThemeData(primaryColor: Colors.blue),
-      home: HomeScreen(),
+      theme:theme(),
       onGenerateRoute: AppRouter.onGenerateRoute,
       initialRoute: HomeScreen.routeName,
     );
