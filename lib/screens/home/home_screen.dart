@@ -34,9 +34,41 @@ class HomeScreen extends StatelessWidget {
           ),
           const SectionTitle(title: "Recomended"),
           // Product card
+          Stack(
+            children: [
+              Container(
+                width: MediaQuery.of(context).size.width / 2.5,
+                height: 150,
+                child: Image.network(
+                  Product.product[0].imageUrl,
+                  fit: BoxFit.cover,
+                ),
+              ),
+              Positioned(
+                top: 65,
+                left: 5,
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 2.5  -10,
+                  height: 70,
+                  decoration: BoxDecoration(color: Colors.black.withAlpha(50)),
+                  child: Row(
+                    children: [
+                      Row(
+                        children: [
+                          Text(
+                            Product.product[0].name,
+                            style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.white),
+                          ),
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              )
+            ],
+          )
         ],
       ),
     );
   }
 }
-
