@@ -22,13 +22,60 @@ class Product extends Equatable {
       [name, category, imageUrl, price, isRecommended, isPopular];
 
   static List<Product> products = [
-    Product(
-        name: "White Moon",
+    const Product(
+        name: "MAUI PORTER",
+        category: 'porter',
+        imageUrl:
+'http://jawsbeer.ru/img/user/439/src.png',
+price: 175,
+        isRecommended: true,
+        isPopular: false),
+    const Product(
+        name: 'MOLOKO+',
         category: 'Stout',
         imageUrl:
-            "https://craftbeer78.ru/images_beers/434/500-craftbeer78.ru-white-moon-stout-new-rigas-brewery.jpg",
-        price: 175,
+            'https://thumb.tildacdn.com/tild6565-3934-4662-a239-383434306437/-/resize/254x/-/format/webp/moloko.png',
+        price: 210,
+        isPopular: false,
+        isRecommended: true),
+    const Product(
+        name: 'RED MANIAC',
+        category: 'ipa',
+        imageUrl:
+            'https://thumb.tildacdn.com/tild3037-3161-4961-a264-303734336433/-/resize/254x/-/format/webp/red_maniac.png',
+        price: 250,
         isRecommended: true,
-        isPopular: false)
+        isPopular: true),
+    const Product(
+        name: "JAWS APA",
+        category: 'ipa',
+        imageUrl: "http://jawsbeer.ru/img/user/612/src.png",
+        price: 195,
+        isRecommended: false,
+        isPopular: true),
+    const Product(
+        name: 'FIBONACCI',
+        category: 'ipa',
+        imageUrl:
+            "https://thumb.tildacdn.com/tild3361-6563-4064-b662-306434623866/-/resize/420x/-/format/webp/Fibonacci_05.png",
+        price: 215,
+        isRecommended: true,
+        isPopular: false),
+    const Product(
+        name: "IN BLOOM",
+        category: "IPA",
+        imageUrl:
+            "https://thumb.tildacdn.com/tild6334-3439-4364-b631-663530613764/-/resize/254x/-/format/webp/in_bloom.png",
+        price: 245,
+        isRecommended: true,
+        isPopular: false),
+    const Product(
+        name: "Mother T",
+        category: "Stout",
+        imageUrl:
+            "http://upivo.ru/images/virtuemart/product/00-00000932_1.png",
+        price: 225,
+        isRecommended: false,
+        isPopular: true)
   ];
 }

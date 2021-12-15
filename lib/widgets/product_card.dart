@@ -15,18 +15,18 @@ class ProductCard extends StatelessWidget {
       children: [
         Container(
           width: MediaQuery.of(context).size.width / 2.5,
-          height: 150,
+          height: 200,
           child: Image.network(
             product.imageUrl,
-            fit: BoxFit.cover,
+            fit: BoxFit.contain,
           ),
         ),
         Positioned(
-          top: 75,
+          top: 155,
           left: 5,
           child: Container(
             width: MediaQuery.of(context).size.width / 2.5  -10,
-            height: 70,
+            height: 55,
             decoration: BoxDecoration(color: Colors.black.withAlpha(70)),
             child: Padding(
               padding: const EdgeInsets.all(8.0),

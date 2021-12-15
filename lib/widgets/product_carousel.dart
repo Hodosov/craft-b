@@ -15,7 +15,7 @@ class ProductCarousel extends StatelessWidget {
     return Align(
       alignment: Alignment.topLeft,
       child: SizedBox(
-        height: 165,
+        height: 265,
         child: ListView.builder(
           shrinkWrap: true,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),

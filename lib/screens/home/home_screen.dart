@@ -15,6 +15,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.blueGrey[100],
       appBar: CustomAppBar(title: "Craft-B"),
       bottomNavigationBar: CustomNavBar(),
       body: SingleChildScrollView(
@@ -34,14 +35,18 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             const SectionTitle(title: "Recomended"),
-            ProductCarousel(products: Product.products.where((product) => product.isRecommended).toList()),
-                 const SectionTitle(title: "Popular"),
-            ProductCarousel(products: Product.products.where((product) => product.isPopular).toList())
+            ProductCarousel(
+                products: Product.products
+                    .where((product) => product.isRecommended)
+                    .toList()),
+            const SectionTitle(title: "Popular"),
+            ProductCarousel(
+                products: Product.products
+                    .where((product) => product.isPopular)
+                    .toList())
           ],
         ),
       ),
     );
   }
 }
-
-
