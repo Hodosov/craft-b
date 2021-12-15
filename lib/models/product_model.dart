@@ -25,9 +25,8 @@ class Product extends Equatable {
     const Product(
         name: "MAUI PORTER",
         category: 'porter',
-        imageUrl:
-'http://jawsbeer.ru/img/user/439/src.png',
-price: 175,
+        imageUrl: 'http://jawsbeer.ru/img/user/439/src.png',
+        price: 175,
         isRecommended: true,
         isPopular: false),
     const Product(
@@ -70,10 +69,10 @@ price: 175,
         isRecommended: true,
         isPopular: false),
     const Product(
-        name: "Mother T",
+        name: "GIMME LOOT",
         category: "Stout",
         imageUrl:
-            "http://upivo.ru/images/virtuemart/product/00-00000932_1.png",
+            "https://thumb.tildacdn.com/tild3731-3635-4730-b562-663930376265/-/resize/414x/-/format/webp/GIMME_THE_LOOT.png",
         price: 225,
         isRecommended: false,
         isPopular: true)

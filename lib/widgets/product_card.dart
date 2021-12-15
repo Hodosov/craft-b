@@ -22,12 +22,14 @@ class ProductCard extends StatelessWidget {
           ),
         ),
         Positioned(
+          
           top: 155,
           left: 5,
           child: Container(
+            
             width: MediaQuery.of(context).size.width / 2.5  -10,
             height: 55,
-            decoration: BoxDecoration(color: Colors.black.withAlpha(70)),
+            decoration: BoxDecoration(color: Colors.black.withAlpha(70),borderRadius: BorderRadius.circular(10)),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
               child: Row(
