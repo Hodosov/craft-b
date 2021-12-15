@@ -21,7 +21,7 @@ class Product extends Equatable {
   List<Object?> get props =>
       [name, category, imageUrl, price, isRecommended, isPopular];
 
-  static List<Product> product = [
+  static List<Product> products = [
     Product(
         name: "White Moon",
         category: 'Stout',
