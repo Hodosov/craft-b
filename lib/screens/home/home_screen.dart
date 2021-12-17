@@ -15,7 +15,7 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[100],
+      backgroundColor: Colors.blueGrey[200],
       appBar: CustomAppBar(title: "Craft-B"),
       bottomNavigationBar: CustomNavBar(),
       body: SingleChildScrollView(

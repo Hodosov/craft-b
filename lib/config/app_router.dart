@@ -1,3 +1,4 @@
+import 'package:crafts/models/model.dart';
 import 'package:crafts/screens/screens.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -17,7 +18,7 @@ class AppRouter {
        case WishListScreen.routeName: 
         return WishListScreen.route();
          case CatalogScreen.routeName: 
-        return CatalogScreen.route();
+        return CatalogScreen.route(category: settings.arguments as Category);
       default:
         return _errorRoute();
     }
