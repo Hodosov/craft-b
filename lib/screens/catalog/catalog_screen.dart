@@ -38,6 +38,6 @@ class CatalogScreen extends StatelessWidget {
             );
           },
         ),
-        bottomNavigationBar: CustomNavBar());
+        bottomNavigationBar: const CustomNavBar());
   }
 }
