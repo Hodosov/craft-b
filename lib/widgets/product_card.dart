@@ -1,5 +1,7 @@
+import 'package:crafts/blocs/wishlist/wishlist_bloc.dart';
 import 'package:crafts/models/model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class ProductCard extends StatelessWidget {
   final Product product;
@@ -7,13 +9,13 @@ class ProductCard extends StatelessWidget {
   final double leftPosition;
   final bool isWishList;
 
-  const ProductCard({
-    Key? key,
-    required this.product,
-    this.widthFactor = 2.5,
-    this.leftPosition = 5,
-    this.isWishList = false
-  }) : super(key: key);
+  const ProductCard(
+      {Key? key,
+      required this.product,
+      this.widthFactor = 2.5,
+      this.leftPosition = 5,
+      this.isWishList = false})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +27,8 @@ class ProductCard extends StatelessWidget {
       },
       child: Stack(
         children: [
-         Container(
-            width:widthValue,
+          Container(
+            width: widthValue,
             height: 200,
             child: Image.network(
               product.imageUrl,
@@ -36,12 +38,12 @@ class ProductCard extends StatelessWidget {
           Positioned(
             bottom: 20,
             left: leftPosition,
-            child: Container(       
-              width: widthValue -10 - leftPosition,
+            child: Container(
+              width: widthValue - 10 - leftPosition,
               height: 65,
               decoration: BoxDecoration(
-                color: Colors.black.withAlpha(70),
-                borderRadius: BorderRadius.circular(10)),
+                  color: Colors.black.withAlpha(70),
+                  borderRadius: BorderRadius.circular(10)),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -54,24 +56,43 @@ class ProductCard extends StatelessWidget {
                         children: [
                           Text(
                             product.name,
-                            style: Theme.of(context).textTheme.headline5!.copyWith(color: Colors.white),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline5!
+                                .copyWith(color: Colors.white),
                           ),
-                           Text(
+                          Text(
                             '${product.price}',
-                            style: Theme.of(context).textTheme.headline6!.copyWith(color: Colors.white),
+                            style: Theme.of(context)
+                                .textTheme
+                                .headline6!
+                                .copyWith(color: Colors.white),
                           ),
                         ],
                       ),
                     ),
-                    Expanded(child: IconButton(
-                      onPressed: () {}, 
-                      icon: const Icon(Icons.add_circle, color: Colors.white,)
-                      )),
-                      isWishList ?   Expanded(child: IconButton(
-                      onPressed: () {}, 
-                      icon: const Icon(Icons.delete, color: Colors.white,)
-                      ))
-                      : SizedBox()
+                    Expanded(
+                        child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(
+                              Icons.add_circle,
+                              color: Colors.white,
+                            ))),
+                    isWishList
+                        ? BlocBuilder<WishlistBlock, WishlistState>(
+                            builder: (context, state) {
+                            return Expanded(
+                                child: IconButton(
+                                    onPressed: () {
+                                      context.read<WishlistBlock>()
+                                        ..add(RemoveWishlistProduct(product));
+                                    },
+                                    icon: const Icon(
+                                      Icons.delete,
+                                      color: Colors.white,
+                                    )));
+                          })
+                        : SizedBox()
                   ],
                 ),
               ),
