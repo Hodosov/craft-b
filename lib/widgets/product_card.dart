@@ -4,15 +4,21 @@ import 'package:flutter/material.dart';
 class ProductCard extends StatelessWidget {
   final Product product;
   final double widthFactor;
+  final double leftPosition;
+  final bool isWishList;
 
   const ProductCard({
     Key? key,
     required this.product,
-    this.widthFactor = 2.5
+    this.widthFactor = 2.5,
+    this.leftPosition = 5,
+    this.isWishList = false
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final double widthValue = MediaQuery.of(context).size.width / widthFactor;
+
     return InkWell(
       onTap: () {
         Navigator.pushNamed(context, '/product', arguments: product);
@@ -20,7 +26,7 @@ class ProductCard extends StatelessWidget {
       child: Stack(
         children: [
          Container(
-            width: MediaQuery.of(context).size.width / widthFactor,
+            width:widthValue,
             height: 200,
             child: Image.network(
               product.imageUrl,
@@ -29,11 +35,13 @@ class ProductCard extends StatelessWidget {
           ),
           Positioned(
             bottom: 20,
-            left: 5,
+            left: leftPosition,
             child: Container(       
-              width: MediaQuery.of(context).size.width / 2.5  -10,
+              width: widthValue -10 - leftPosition,
               height: 65,
-              decoration: BoxDecoration(color: Colors.black.withAlpha(70),borderRadius: BorderRadius.circular(10)),
+              decoration: BoxDecoration(
+                color: Colors.black.withAlpha(70),
+                borderRadius: BorderRadius.circular(10)),
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Row(
@@ -58,7 +66,12 @@ class ProductCard extends StatelessWidget {
                     Expanded(child: IconButton(
                       onPressed: () {}, 
                       icon: const Icon(Icons.add_circle, color: Colors.white,)
+                      )),
+                      isWishList ?   Expanded(child: IconButton(
+                      onPressed: () {}, 
+                      icon: const Icon(Icons.delete, color: Colors.white,)
                       ))
+                      : SizedBox()
                   ],
                 ),
               ),
